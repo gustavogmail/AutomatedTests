@@ -5,17 +5,18 @@ const { setHeadlessWhen } = require('@codeceptjs/configure');
 setHeadlessWhen(process.env.HEADLESS);
 
 exports.config = {
-  tests: './*_test.js',
+  tests: 'tests/*_test.js',
   output: './output',
   helpers: {
     Playwright: {
-      url: 'https://github.com/gustavogmail',
+      url: 'https://gustavogmail.github.io',
       show: true,
       browser: 'chromium'
     }
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
+    todo_applicationPage: './pages/todo_application.js',
   },
   bootstrap: null,
   mocha: {},
