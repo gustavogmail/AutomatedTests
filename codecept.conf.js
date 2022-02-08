@@ -1,11 +1,4 @@
-const { setHeadlessWhen } = require('@codeceptjs/configure');
-
-// turn on headless mode when running with HEADLESS=true environment variable
-// export HEADLESS=true && npx codeceptjs run
-setHeadlessWhen(process.env.HEADLESS);
-
 exports.config = {
-  tests: 'tests/*_test.js',
   output: './output',
   helpers: {
     Playwright: {
@@ -16,21 +9,39 @@ exports.config = {
   },
   include: {
     I: './steps_file.js',
-    todo_applicationPage: './pages/todo_application.js',
+    todo_applicationPage: './pages/todo_application.js'
   },
-  bootstrap: null,
   mocha: {},
-  name: 'AutomatedTests',
+  bootstrap: null,
+  timeout: null,
+  teardown: null,
+  hooks: [],
+  gherkin: {
+    features: './features/*.feature',
+    steps: ['./step_definitions/steps.js']
+  },
   plugins: {
+    screenshotOnFail: {
+      enabled: true
+    },
     pauseOnFail: {},
     retryFailedStep: {
       enabled: true
     },
     tryTo: {
       enabled: true
-    },
-    screenshotOnFail: {
-      enabled: true
     }
-  }
+  },
+  stepTimeout: 0,
+  stepTimeoutOverride: [{
+      pattern: 'wait.*',
+      timeout: 0
+    },
+    {
+      pattern: 'amOnPage',
+      timeout: 0
+    }
+  ],
+  tests: 'tests/*_test.js',
+  name: 'AutomatedTests'
 }
