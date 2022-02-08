@@ -9,7 +9,8 @@ exports.config = {
   },
   include: {
     I: './steps_file.js',
-    todo_applicationPage: './pages/todo_application.js'
+    todo_applicationPage: './pages/todo_application.js',
+    login_form_applicationPage: './pages/login_form_application.js',
   },
   mocha: {},
   bootstrap: null,
