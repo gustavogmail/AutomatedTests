@@ -11,3 +11,12 @@ Scenario: log in application with a valid user
         | gustavo@emailprovider.com | 123456789 |
 
     Then I can see the success message
+
+Scenario: try to log in application with a invalid user
+    Given I am on the login page
+
+    When I tried to log in with a invalid user
+        | username                      | password  |
+        | invaliduser@emailprovider.com | 987654321 |
+
+    Then I can see the error message
