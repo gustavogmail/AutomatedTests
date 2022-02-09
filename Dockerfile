@@ -6,6 +6,8 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN npm install playwright 
+
 COPY . .
 
 CMD [ "npm", "test"]
