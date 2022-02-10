@@ -1,12 +1,10 @@
-FROM node:12
+FROM codeception/codeceptjs
 
-WORKDIR /app
+WORKDIR /tests
 
 COPY package*.json ./
 
 RUN npm install
-
-RUN npm install playwright 
 
 COPY . .
 
