@@ -31,6 +31,9 @@ exports.config = {
     },
     tryTo: {
       enabled: true
+    },
+    allure: {
+      enabled: true
     }
   },
   stepTimeout: 0,

@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "serve": "allure serve output",
     "test": "npx codeceptjs run --steps"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "allure-commandline": "^2.17.2",
     "codeceptjs": "^3.2.3",
     "playwright": "^1.17.2"
   }
